@@ -3,15 +3,20 @@ import { NavController } from 'ionic-angular';
 
 import { ApiService } from '../../services/api.service';
 
+import { RestaurantPage } from '../restaurant/restaurant';
+import { AddRestaurantPage } from '../add-restaurant/add-restaurant';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
   private restaurants: Object[];
+  private ratingStars: Array<any>;
 
   constructor(public navCtrl: NavController, private _apiService: ApiService) {
-
+    this.restaurants = [];
+    this.ratingStars = [];
   }
 
   ngOnInit() {
@@ -22,7 +27,24 @@ export class HomePage implements OnInit {
     this._apiService.getIndexRestaurants()
       .subscribe(res => {
         this.restaurants = res.json();
+        for (let r in this.restaurants) {
+          this.ratingStars[r] = new Array(Math.round(this.restaurants[r]['rating']));
+        }
+      }, err => {
+        console.log(err);
+      }, () => {
+        console.log(this.ratingStars);
       });
+  }
+
+  pushRestaurant(restaurant: Object) {
+    this.navCtrl.push(RestaurantPage, {
+      restaurant: restaurant
+    })
+  }
+
+  pushAddRestaurant() {
+    this.navCtrl.push(AddRestaurantPage);
   }
 
   getRestaurants(ev) {
@@ -30,6 +52,9 @@ export class HomePage implements OnInit {
     this._apiService.getIndexRestaurants()
       .subscribe(res => {
         this.restaurants = res.json();
+        for (let restaurant of this.restaurants) {
+          this.ratingStars = new Array(Math.round(restaurant['rating']));
+        }
       }, err => {
         console.log(err);
       }, () => {

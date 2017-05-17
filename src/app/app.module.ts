@@ -11,6 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { RestaurantPage } from '../pages/restaurant/restaurant';
+import { AddRestaurantPage } from '../pages/add-restaurant/add-restaurant';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +31,9 @@ const cloudSettings: CloudSettings = {
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    RestaurantPage,
+    AddRestaurantPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ const cloudSettings: CloudSettings = {
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    RestaurantPage,
+    AddRestaurantPage
   ],
   providers: [
     StatusBar,

@@ -33,7 +33,7 @@ export class LoginPage {
       });
   }
 
-  signup() {
+  pushSignup() {
     this.navCtrl.push(SignupPage)
   }
 }
