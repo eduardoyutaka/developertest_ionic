@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Sign In</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="details.name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Username" [(ngModel)]="details.username" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="details.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="details.password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="secondary" block (click)="signup()">Sign Up</button>
+  </div>
+
+</ion-content>

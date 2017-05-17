@@ -1,14 +1,16 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { MyApp } from './app.component';
 
-import { SignInPage } from '../pages/sign-in/sign-in';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,10 +28,13 @@ const cloudSettings: CloudSettings = {
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    JsonpModule,
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings)
   ],
@@ -40,7 +45,8 @@ const cloudSettings: CloudSettings = {
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
